@@ -61,6 +61,59 @@
     revealTargets.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---- Carousels (Volunteering) ---- */
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('[data-carousel-track]');
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel__slide'));
+    var prevBtn = carousel.querySelector('[data-carousel-prev]');
+    var nextBtn = carousel.querySelector('[data-carousel-next]');
+    var dotsWrap = carousel.querySelector('[data-carousel-dots]');
+    if (!track || !slides.length) return;
+
+    var dots = slides.map(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel__dot';
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function () {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function setActiveDot() {
+      var trackRect = track.getBoundingClientRect();
+      var closest = 0;
+      var closestDist = Infinity;
+      slides.forEach(function (slide, i) {
+        var dist = Math.abs(slide.getBoundingClientRect().left - trackRect.left);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === closest); });
+    }
+
+    function scrollByAmount(dir) {
+      var amount = track.clientWidth * 0.9 * dir;
+      track.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { scrollByAmount(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { scrollByAmount(1); });
+
+    track.addEventListener('scroll', function () {
+      window.clearTimeout(track._scrollTimer);
+      track._scrollTimer = window.setTimeout(setActiveDot, 80);
+    });
+
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { scrollByAmount(1); }
+      if (e.key === 'ArrowLeft') { scrollByAmount(-1); }
+    });
+
+    setActiveDot();
+  });
+
   /* ---- Modals (Contact / Get Quote) ---- */
   var CONTACT_EMAIL = 'zwzwatts@gmail.com';
 

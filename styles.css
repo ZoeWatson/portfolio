@@ -301,6 +301,73 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
 }
 
 /* =========================================================
+   CAROUSEL (Volunteering)
+   ========================================================= */
+.carousel { position: relative; }
+.carousel__track {
+  display: flex; gap: 1.4rem;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; padding-bottom: .3rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__slide {
+  flex: 0 0 100%; scroll-snap-align: start;
+}
+@media (min-width: 640px) {
+  .carousel__slide { flex-basis: calc(50% - .7rem); }
+}
+@media (min-width: 980px) {
+  .carousel__slide { flex-basis: calc(33.333% - .95rem); }
+}
+
+.volunteer-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.8rem 1.7rem;
+  box-shadow: var(--shadow-sm); height: 100%;
+}
+.volunteer-card__category {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--accent-warm); margin: 0 0 .8rem;
+}
+.volunteer-card__role {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.2rem;
+  color: var(--ink); margin: 0 0 .3rem;
+}
+.volunteer-card__org { color: var(--green-700); font-weight: 500; font-size: .95rem; margin: 0 0 .2rem; }
+.volunteer-card__dates { font-family: var(--font-mono); font-size: .8rem; color: var(--ink-muted); margin: 0 0 1rem; }
+.volunteer-card__desc { color: var(--ink-soft); font-size: .93rem; margin: 0; }
+.volunteer-card__points { margin: .9rem 0 0; padding: 0; list-style: none; }
+.volunteer-card__points li {
+  position: relative; padding-left: 1.2rem; margin-bottom: .5rem;
+  font-size: .88rem; color: var(--ink-soft);
+}
+.volunteer-card__points li::before {
+  content: ""; position: absolute; left: 0; top: .55em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green-400);
+}
+
+.carousel__controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.2rem; margin-top: 1.6rem;
+}
+.carousel__btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid var(--green-300); background: var(--white);
+  color: var(--green-800); font-size: 1.3rem; line-height: 1;
+  display: grid; place-items: center; cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.carousel__btn:hover { background: var(--green-050); border-color: var(--green-600); }
+.carousel__dots { display: flex; gap: .5rem; }
+.carousel__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green-300); border: 0; padding: 0; cursor: pointer;
+}
+.carousel__dot.is-active { background: var(--green-700); width: 22px; border-radius: 5px; transition: width .2s ease, background .2s ease; }
+
+/* =========================================================
    MODALS
    ========================================================= */
 .modal {
