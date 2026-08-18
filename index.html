@@ -204,7 +204,7 @@
       <div class="wrap section__grid">
         <div class="section__head">
           <p class="section__kicker"><span class="dot"></span>02 — About</p>
-          <h2 class="section__title" id="about-heading">Hello — I'm Zoe.</h2>
+          <h2 class="section__title" id="about-heading">Hello — I'm Zoe (they/them).</h2>
         </div>
         <div class="section__body prose">
           <p>
@@ -227,8 +227,7 @@
             actually need the thing you asked for.
           </p>
           <p class="about__identity">
-            I'm agender and use <strong>they/them</strong> pronouns. Stated plainly, because it's
-            simply true — not a disclaimer.
+            I work in <strong>English</strong> (native) and <strong>French</strong> (intermediate).
           </p>
           <ul class="about__pillars">
             <li>
@@ -350,6 +349,34 @@
                 the full arc from raw data to a decision instrument a town can actually use.
               </p>
               <ul class="tl__points">
+                <li>A research-backed wildfire behaviour and evacuation simulation, built for the fire planners and emergency managers who need it.</li>
+                <li>Combines <strong>fire modelling</strong> and <strong>traffic modelling</strong> — road closures, evacuation routing, and emergency dispatch on real terrain.</li>
+                <li>Built in <strong>Unity</strong> and C#, with the simulation core kept engine-independent so it can be tested and run headless.</li>
+                <li>Architected so peer-reviewed fire science can be swapped in behind the interfaces rather than bolted on later.</li>
+              </ul>
+              <p class="tl__cta"><a href="#case-firesim">Read more about the simulation →</a></p>
+              <ul class="tl__tags">
+                <li>Unity</li><li>C#</li><li>Fire modelling</li><li>SUMO traffic</li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- UVic — Data Assistant -->
+          <li class="tl">
+            <div class="tl__meta">
+              <span class="tl__date">Feb 2026 — Present</span>
+              <span class="tl__place">Victoria, BC</span>
+            </div>
+            <div class="tl__card">
+              <div class="tl__title">
+                <h3>Data Assistant, Academic Research</h3>
+                <p class="tl__org">University of Victoria</p>
+              </div>
+              <p class="tl__summary">
+                Building the data foundation for academic climate research — collecting, structuring,
+                and analyzing evidence that researchers and policy stakeholders can rely on.
+              </p>
+              <ul class="tl__points">
                 <li>Built multi-source data pipelines: <strong>8,400+ records</strong> spanning <strong>13 UN Decades</strong> and <strong>20+ sources</strong>.</li>
                 <li>Architected the semantic layer and taxonomy from scratch to make disparate data interoperable.</li>
                 <li>Applied panel Granger causality (Dumitrescu–Hurlin) statistical testing across <strong>151 countries</strong>.</li>
@@ -399,17 +426,16 @@
                 <p class="tl__org">SparkForge Workshop</p>
               </div>
               <p class="tl__summary">
-                Built a small sustainable-goods business from nothing — product, storefront, supply
-                chain, and growth — under a hard sourcing constraint I refused to relax.
+                Built a handmade art business from nothing — product, storefront, supply chain,
+                markets, and growth.
               </p>
               <ul class="tl__points">
                 <li>Grew gross revenue <strong>928.6% YoY</strong> to <strong>$7,500</strong>.</li>
                 <li>Cut COGS from <strong>34% to 25%</strong> through supplier and unit-economics work.</li>
                 <li>Expanded from <strong>2 to 11 markets</strong>; built the e-commerce site (<strong>27% YoY</strong> traffic growth).</li>
-                <li>Ran on a strict sustainability rule: no Amazon; Canadian and secondhand suppliers only.</li>
               </ul>
               <ul class="tl__tags">
-                <li>E-commerce</li><li>Unit economics</li><li>Sustainable sourcing</li><li>Go-to-market</li>
+                <li>E-commerce</li><li>Unit economics</li><li>Handmade art</li><li>Go-to-market</li>
               </ul>
             </div>
           </li>
@@ -432,7 +458,7 @@
               </p>
               <ul class="tl__points">
                 <li>Self-taught Electron from novice to first deliverable in <strong>two weeks</strong>.</li>
-                <li>Fought to include real user research — met users across <strong>5 departments</strong> and 3 department heads.</li>
+                <li>Made the case for real user research — met users across <strong>5 departments</strong> and 3 department heads.</li>
                 <li>Left a knowledge-sharing legacy: a crash course that let colleagues launch new Electron projects.</li>
               </ul>
               <p class="tl__cta"><a href="#case-spnote">Read the full SPNote story →</a></p>
@@ -494,31 +520,74 @@
           <h2 class="section__title" id="work-heading">A few things I've made, and how they went.</h2>
         </div>
 
-        <div class="cases">
+        <div class="carousel carousel--wide" data-carousel aria-roledescription="carousel" aria-label="Past projects">
+          <div class="carousel__track cases" data-carousel-track tabindex="0">
+          <!-- Fire Evacuation Modeling -->
+          <article class="carousel__slide case" id="case-firesim">
+            <header class="case__head">
+              <p class="case__label">Case study · University of Victoria · In progress</p>
+              <h3 class="case__title">Fire Evacuation Modeling — a decision tool for the people who call the evacuation</h3>
+            </header>
+            <div class="case__body prose">
+              <p>
+                When a wildfire moves toward a community, someone has to decide when to call the
+                evacuation and which roads to send people down. That decision is currently made with
+                experience, maps, and very little time. I'm building a simulation that lets planners
+                rehearse it beforehand.
+              </p>
+              <p>
+                It models two things at once: <strong>how the fire spreads</strong> across real terrain,
+                and <strong>how traffic moves</strong> while it does. You can close a road and watch the
+                evacuation re-route around it, dispatch a fire truck through closures, or branch the
+                whole timeline to compare two decisions side by side. The interaction borrows from games
+                — free-flying camera, click the terrain, branching saves — because that turns out to be
+                a genuinely good way to explore "what if we'd done it differently".
+              </p>
+              <p>
+                The engineering choice I care most about: the simulation core is plain C# with no
+                dependency on the game engine at all. That means it can be unit-tested, run headless in
+                batches, and — critically — have peer-reviewed fire science swapped in behind its
+                interfaces as the research matures, instead of being rewritten each time.
+              </p>
+            </div>
+            <ul class="case__stats">
+              <li><span>Fire +<br>traffic</span>modelled together</li>
+              <li><span>Unity</span>C# / URP</li>
+              <li><span>Engine-<br>free core</span>testable &amp; headless</li>
+              <li><span>Branching</span>compare decisions</li>
+            </ul>
+            <ul class="case__tags">
+              <li>Unity</li><li>C#</li><li>Eclipse SUMO</li><li>GIS</li><li>Wildfire science</li><li>Decision support</li>
+            </ul>
+          </article>
+
           <!-- SPNote -->
-          <article class="case" id="case-spnote">
+          <article class="carousel__slide case" id="case-spnote">
             <header class="case__head">
               <p class="case__label">Case study · Sony Pictures Imageworks</p>
               <h3 class="case__title">SPNote — from feasibility study to 300+ users, and an Innovation Award</h3>
             </header>
             <div class="case__body prose">
               <p>
-                It started as a question, not a mandate: could a single internal media notebook replace
-                the scattered, unofficial workflows artists were using? I ran the feasibility study myself,
-                then taught myself Electron — novice to first working deliverable in two weeks.
+                There was already an app in place — a quick fix that had quietly become load-bearing.
+                Far more weight had been placed on it than it was ever designed to carry, and it had
+                reached the end of what patching could do. My job was to replace it properly: a
+                greenfield redesign in a new language. I ran the feasibility study myself, then taught
+                myself Electron — novice to first working deliverable in two weeks.
               </p>
               <p>
-                The part most engineers skip is the part that made it work. I pushed to include real user
-                research and had to <em>fight</em> to get those meetings on the calendar — sitting down with
-                users across five departments and three department heads to learn what they actually needed,
-                not what a spec assumed. That research reshaped the roadmap, which I then had to deliver under
-                real time pressure.
+                The part most engineers skip is the part that made it work. I made the case for real
+                user research, and it took some patient convincing to get those conversations on the
+                calendar — but once they happened, everyone could see the value. I sat down with users
+                across five departments and three department heads to learn what they actually needed,
+                rather than what a spec assumed. That research reshaped the roadmap, and the roadmap
+                shaped a tool people genuinely wanted to use.
               </p>
               <p>
-                The tool reached <strong>300+ internal users</strong> in under eight months and won the
-                <strong>Sony Imageworks Innovation Award</strong>. But the piece I'm proudest of is the
-                legacy: before I left, I ran a crash course in Electron for the department so the work would
-                outlive me — teams launched new projects on it after I was gone.
+                It reached <strong>300+ internal users</strong> in under eight months and won the
+                <strong>Sony Imageworks Innovation Award</strong>. The piece I'm proudest of, though, is
+                what grew after: I ran a crash course in Electron for the department so the knowledge
+                would stay behind me, and teams went on to start new projects with it once I'd gone.
               </p>
             </div>
             <ul class="case__stats">
@@ -533,32 +602,37 @@
           </article>
 
           <!-- SparkForge -->
-          <article class="case" id="case-sparkforge">
+          <article class="carousel__slide case" id="case-sparkforge">
             <header class="case__head">
               <p class="case__label">Case study · Independent business</p>
-              <h3 class="case__title">SparkForge Workshop — a business built on a constraint I wouldn't relax</h3>
+              <h3 class="case__title">SparkForge Workshop — handmade dragons, and the business around them</h3>
             </header>
             <div class="case__body prose">
               <p>
-                SparkForge is a sustainable-goods business I started and run end to end — product, brand,
-                storefront, supply chain, and growth. The defining decision was a sourcing rule I set on day
-                one and never loosened: <strong>no Amazon; Canadian and secondhand suppliers only</strong>.
-                That constraint made everything harder and the business more honest.
+                Based in Victoria, BC, SparkForge Workshop is home to the imaginative, colourful, and
+                fantastical. It's where I sell my handmade art — dragon terrariums and other small
+                fantasy pieces — at in-person markets, through workshops I run myself, and online.
               </p>
               <p>
-                Within that box, the numbers moved. Gross revenue grew <strong>928.6% year over year</strong>
-                to $7,500. I drove COGS down from 34% to 25% by reworking suppliers and unit economics, and
-                expanded from 2 to 11 markets. I built the e-commerce site myself and grew its traffic 27% YoY.
+                I started it and I run all of it: making the work, building the brand, managing stock
+                and suppliers, doing the books, standing at the market table, and teaching the
+                workshops. Gross revenue grew <strong>928.6% year over year</strong> to $7,500. I brought
+                production cost down from 34% to 25% of sell price by reworking unit economics, expanded
+                from 2 to 11 markets, and built the e-commerce site myself — up 27% in traffic YoY.
+              </p>
+              <p>
+                It's also the reason I understand my clients. Running a small business means knowing
+                exactly how it feels to weigh whether something is worth the money.
               </p>
             </div>
             <ul class="case__stats">
               <li><span>928.6%</span>YoY revenue</li>
-              <li><span>34→25%</span>COGS</li>
+              <li><span>34→25%</span>production cost</li>
               <li><span>2→11</span>markets</li>
               <li><span>+27%</span>YoY site traffic</li>
             </ul>
             <ul class="case__tags">
-              <li>E-commerce</li><li>Unit economics</li><li>Sustainable sourcing</li><li>Brand</li>
+              <li>Handmade art</li><li>E-commerce</li><li>Workshops</li><li>Unit economics</li><li>Brand</li>
             </ul>
             <p class="case__link">
               <a href="https://sparkforge-workshop.square.site" target="_blank" rel="noopener">Visit SparkForge Workshop →</a>
@@ -566,7 +640,7 @@
           </article>
 
           <!-- Climate Model -->
-          <article class="case" id="case-climate">
+          <article class="carousel__slide case" id="case-climate">
             <header class="case__head">
               <p class="case__label">Case study · Published research</p>
               <h3 class="case__title">Effective Community Action Model — a peer-reviewed climate tool</h3>
@@ -594,23 +668,14 @@
               <a href="https://github.com/ZoeWatson/CO2Sim" target="_blank" rel="noopener">View on GitHub →</a>
             </p>
           </article>
+          </div>
 
-          <!-- Fire Sim -->
-          <article class="case" id="case-firesim">
-            <header class="case__head">
-              <p class="case__label">Case study · Placeholder</p>
-              <h3 class="case__title">Fire Sim</h3>
-            </header>
-            <div class="case__body prose">
-              <p class="placeholder-note">Placeholder — full write-up coming soon.</p>
-              <p>
-                Details on this project are coming soon.
-              </p>
-            </div>
-            <ul class="case__tags">
-              <li>Placeholder</li>
-            </ul>
-          </article>
+          <div class="carousel__controls">
+            <button type="button" class="carousel__btn" data-carousel-prev aria-label="Previous project">‹</button>
+            <div class="carousel__dots" data-carousel-dots></div>
+            <button type="button" class="carousel__btn" data-carousel-next aria-label="Next project">›</button>
+            <button type="button" class="carousel__expand" data-carousel-toggle aria-expanded="false">Show all</button>
+          </div>
         </div>
       </div>
     </section>
@@ -627,8 +692,9 @@
           </p>
         </div>
 
-        <div class="skills">
-          <div class="skills__col">
+        <div class="carousel carousel--cards" data-carousel aria-roledescription="carousel" aria-label="Skills">
+          <div class="carousel__track skills" data-carousel-track tabindex="0">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Programming languages</h3>
             <div class="skills__group">
               <h4>Object oriented</h4>
@@ -663,7 +729,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Data engineering &amp; analysis</h3>
             <ul class="chips chips--stack">
               <li>Data pipeline architecture</li>
@@ -681,7 +747,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">AI &amp; LLM systems</h3>
             <ul class="chips chips--stack">
               <li>LLM agent workflow design</li>
@@ -697,7 +763,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Frameworks, cloud &amp; DevOps</h3>
             <ul class="chips chips--stack">
               <li>Electron</li>
@@ -718,7 +784,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Domain knowledge</h3>
             <ul class="chips chips--stack">
               <li>Climate science &amp; mitigation</li>
@@ -736,7 +802,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Research &amp; evidence synthesis</h3>
             <ul class="chips chips--stack">
               <li>Research design &amp; taxonomy development</li>
@@ -754,7 +820,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Security &amp; compliance</h3>
             <ul class="chips chips--stack">
               <li>Security clearance experience</li>
@@ -770,7 +836,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Project &amp; product management</h3>
             <ul class="chips chips--stack">
               <li>Agile (Scrum, Kanban, sprint planning, code review)</li>
@@ -788,7 +854,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Business &amp; strategy</h3>
             <ul class="chips chips--stack">
               <li>Unit economics &amp; COGS optimization</li>
@@ -806,7 +872,7 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Communication &amp; teaching</h3>
             <ul class="chips chips--stack">
               <li>Knowledge mobilization</li>
@@ -824,12 +890,20 @@
             </p>
           </div>
 
-          <div class="skills__col">
+          <div class="carousel__slide skills__col">
             <h3 class="skills__title">Languages</h3>
             <ul class="chips chips--stack">
               <li>English — expert</li>
               <li>French — intermediate</li>
             </ul>
+          </div>
+          </div>
+
+          <div class="carousel__controls">
+            <button type="button" class="carousel__btn" data-carousel-prev aria-label="Previous skills">‹</button>
+            <div class="carousel__dots" data-carousel-dots></div>
+            <button type="button" class="carousel__btn" data-carousel-next aria-label="Next skills">›</button>
+            <button type="button" class="carousel__expand" data-carousel-toggle aria-expanded="false">Show all</button>
           </div>
         </div>
       </div>
@@ -843,53 +917,69 @@
           <h2 class="section__title" id="volunteering-heading">Giving back where it counts.</h2>
         </div>
 
-        <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Volunteering experience">
+        <div class="carousel carousel--focus" data-carousel data-carousel-focus aria-roledescription="carousel" aria-label="Volunteering experience">
           <div class="carousel__track" data-carousel-track tabindex="0">
             <article class="carousel__slide volunteer-card">
-              <p class="volunteer-card__category">Civil Rights &amp; Social Action</p>
-              <h3 class="volunteer-card__role">Volunteer</h3>
-              <p class="volunteer-card__org">Women In Need, Inc. (WIN)</p>
-              <p class="volunteer-card__dates">Jun 2025 – Apr 2026 · 11 mos</p>
-              <p class="volunteer-card__desc">
-                Volunteering weekly at WIN's charity shop, supporting day-to-day retail operations that
-                help fund community programs for women and families.
-              </p>
+              <div class="volunteer-card__head">
+                <p class="volunteer-card__category">Civil Rights &amp; Social Action</p>
+                <h3 class="volunteer-card__role">Volunteer</h3>
+                <p class="volunteer-card__org">Women In Need, Inc. (WIN)</p>
+                <p class="volunteer-card__dates">Jun 2025 – Apr 2026 · 11 mos</p>
+              </div>
+              <div class="volunteer-card__body">
+                <p class="volunteer-card__desc">
+                  Volunteering weekly at WIN's charity shop, supporting day-to-day retail operations that
+                  help fund community programs for women and families.
+                </p>
+              </div>
             </article>
 
             <article class="carousel__slide volunteer-card">
-              <p class="volunteer-card__category">Education</p>
-              <h3 class="volunteer-card__role">Mentor</h3>
-              <p class="volunteer-card__org">Esquimalt Atom Smashers &middot; FRC 7287 / FTC 20025</p>
-              <p class="volunteer-card__dates">Sep 2025 – Apr 2026 · 8 mos</p>
-              <p class="volunteer-card__desc">
-                Mentoring a high school robotics team through competitive FIRST Robotics seasons.
-              </p>
-              <ul class="volunteer-card__points">
-                <li>Mentored 40+ students in programming fundamentals and robotics software development</li>
-                <li>Designed and delivered hands-on coding lessons for a range of skill levels, from beginners to advanced</li>
-                <li>Guided teams through the full engineering design cycle, from prototyping to competition-ready builds</li>
-              </ul>
+              <div class="volunteer-card__head">
+                <p class="volunteer-card__category">Education</p>
+                <h3 class="volunteer-card__role">Mentor</h3>
+                <p class="volunteer-card__org">Esquimalt Atom Smashers &middot; FRC 7287 / FTC 20025</p>
+                <p class="volunteer-card__dates">Sep 2025 – Apr 2026 · 8 mos</p>
+              </div>
+              <div class="volunteer-card__body">
+                <p class="volunteer-card__desc">
+                  Mentoring a high school robotics team through competitive FIRST Robotics seasons.
+                </p>
+                <ul class="volunteer-card__points">
+                  <li>Mentored 40+ students in programming fundamentals and robotics software development</li>
+                  <li>Designed and delivered hands-on coding lessons across skill levels, beginner to advanced</li>
+                  <li>Guided teams through the full engineering design cycle, prototype to competition build</li>
+                </ul>
+              </div>
             </article>
 
             <article class="carousel__slide volunteer-card">
-              <p class="volunteer-card__category">Arts &amp; Culture</p>
-              <h3 class="volunteer-card__role">Citizen</h3>
-              <p class="volunteer-card__org">STARFLEET: The International Star Trek Fan Association, Inc.</p>
-              <p class="volunteer-card__dates">Jul 2026 – Present · 2 mos</p>
-              <p class="volunteer-card__desc">
-                Active member of the international Star Trek fan association, taking part in its community
-                and cultural events.
-              </p>
+              <div class="volunteer-card__head">
+                <p class="volunteer-card__category">Arts &amp; Culture</p>
+                <h3 class="volunteer-card__role">Citizen</h3>
+                <p class="volunteer-card__org">STARFLEET: The International Star Trek Fan Association</p>
+                <p class="volunteer-card__dates">Jul 2026 – Present · 2 mos</p>
+              </div>
+              <div class="volunteer-card__body">
+                <p class="volunteer-card__desc">
+                  Active member of the international Star Trek fan association, taking part in its community
+                  and cultural events.
+                </p>
+              </div>
             </article>
 
             <article class="carousel__slide volunteer-card">
-              <p class="volunteer-card__category">Environment</p>
-              <h3 class="volunteer-card__role">Volunteer</h3>
-              <p class="volunteer-card__org">Greater Victoria Green Team</p>
-              <p class="volunteer-card__dates">Invasive species removal day</p>
-              <p class="volunteer-card__desc">
-                Joined a local invasive species pulling day, helping restore habitat for native plant species.
-              </p>
+              <div class="volunteer-card__head">
+                <p class="volunteer-card__category">Environment</p>
+                <h3 class="volunteer-card__role">Volunteer</h3>
+                <p class="volunteer-card__org">Greater Victoria Green Team</p>
+                <p class="volunteer-card__dates">Invasive species removal day</p>
+              </div>
+              <div class="volunteer-card__body">
+                <p class="volunteer-card__desc">
+                  Joined a local invasive species pulling day, helping restore habitat for native plant species.
+                </p>
+              </div>
             </article>
           </div>
 
@@ -902,16 +992,9 @@
       </div>
     </section>
 
-    <!-- ===================== EDUCATION + CONTACT ===================== -->
+    <!-- ===================== CONTACT ===================== -->
     <section class="section section--alt" id="contact" aria-labelledby="contact-heading">
-      <div class="wrap contact__grid">
-        <div class="contact__edu">
-          <p class="section__kicker"><span class="dot"></span>08 — Education</p>
-          <h2 class="section__title contact__edu-title">BSc, Combined Science</h2>
-          <p class="contact__edu-detail">Physics · Computer Science · Environmental Science</p>
-          <p class="contact__edu-school">University of British Columbia — Vancouver, BC · 2024</p>
-        </div>
-
+      <div class="wrap contact__grid contact__grid--single">
         <div class="contact__cta" aria-labelledby="contact-heading">
           <h2 class="contact__title" id="contact-heading">Tell me what you're trying to do.</h2>
           <p class="contact__lede">
@@ -924,9 +1007,9 @@
             <button type="button" class="btn btn--outline-light" data-modal-open="quote-modal">Get a quote</button>
           </div>
           <div class="contact__links">
-            <a class="contact__link" href="mailto:zwzwatts@gmail.com">
+            <a class="contact__link" href="mailto:SunlightForge@proton.me">
               <span class="contact__link-label">Email</span>
-              <span class="contact__link-value">zwzwatts@gmail.com</span>
+              <span class="contact__link-value">SunlightForge@proton.me</span>
             </a>
             <a class="contact__link" href="https://linkedin.com/in/zma-watson" target="_blank" rel="noopener">
               <span class="contact__link-label">LinkedIn</span>
@@ -981,7 +1064,7 @@
         <button type="submit" class="btn btn--primary">Send message</button>
       </div>
       <p class="modal__direct">
-        Prefer to email directly? <a href="mailto:zwzwatts@gmail.com">zwzwatts@gmail.com</a>
+        Prefer to email directly? <a href="mailto:SunlightForge@proton.me">SunlightForge@proton.me</a>
       </p>
     </form>
   </dialog>
@@ -1000,15 +1083,17 @@
         <span>Email</span>
         <input type="email" name="email" required />
       </label>
-      <label class="modal__field">
-        <span>Project type</span>
-        <select name="projectType">
-          <option value="Meal planner">Recipe / meal planner tool</option>
-          <option value="Simulation">Simulation</option>
-          <option value="Game">Game</option>
-          <option value="Other">Something else</option>
-        </select>
-      </label>
+      <fieldset class="modal__field modal__field--group">
+        <legend>Project type <span class="modal__hint">— pick as many as apply</span></legend>
+        <div class="modal__checks">
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Website" /> <span>Website</span></label>
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Simulation" /> <span>Simulation</span></label>
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Game" /> <span>Game</span></label>
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Research" /> <span>Research</span></label>
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Data Analysis" /> <span>Data Analysis</span></label>
+          <label class="modal__check"><input type="checkbox" name="projectType" value="Something Else" /> <span>Something Else</span></label>
+        </div>
+      </fieldset>
       <label class="modal__field">
         <span>Rough budget / timeline</span>
         <input type="text" name="budget" placeholder="e.g. $2–5k, ready in 6 weeks" />
