@@ -590,6 +590,13 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
   background: var(--green-050); border: 1px solid var(--green-100);
   padding: .28rem .6rem; border-radius: 6px;
 }
+
+.tl__project { padding-top: 1.4rem; margin-top: 1.4rem; border-top: 1px dashed var(--line); }
+.tl__project:first-of-type { padding-top: 0; margin-top: 0; border-top: 0; }
+.tl__project-title {
+  font-family: var(--font-mono); font-size: .78rem; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--green-700); margin: 0 0 .8rem;
+}
 .tl--compact { grid-template-columns: 200px 1fr; }
 .tl--compact .tl__card { background: transparent; box-shadow: none; border-style: dashed; }
 .tl--compact .tl__card:hover { transform: none; box-shadow: none; }
