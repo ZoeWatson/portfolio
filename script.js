@@ -74,19 +74,22 @@
     var prevBtn = carousel.querySelector('[data-carousel-prev]');
     var nextBtn = carousel.querySelector('[data-carousel-next]');
     var dotsWrap = carousel.querySelector('[data-carousel-dots]');
-    var toggleBtn = carousel.querySelector('[data-carousel-toggle]');
     // Focus mode dims every slide except the one nearest the centre.
     var focusMode = carousel.hasAttribute('data-carousel-focus');
     if (!track || !slides.length) return;
 
     var alignCentre = focusMode;
 
-    function scrollSlideIntoView(slide) {
-      slide.scrollIntoView({
-        behavior: 'smooth',
-        inline: alignCentre ? 'center' : 'start',
-        block: 'nearest'
-      });
+    // Scrolls only the track itself. scrollIntoView() was tried here first, but
+    // it scrolls every scrollable ancestor needed to reveal the target — for
+    // tall slides (skills, project cases) the page often scrolled vertically
+    // instead of the track scrolling horizontally, so the buttons looked dead.
+    function scrollToSlide(slide) {
+      var trackRect = track.getBoundingClientRect();
+      var slideRect = slide.getBoundingClientRect();
+      var delta = slideRect.left - trackRect.left;
+      if (alignCentre) delta -= (trackRect.width - slideRect.width) / 2;
+      track.scrollTo({ left: track.scrollLeft + delta, behavior: 'smooth' });
     }
 
     var dots = [];
@@ -96,7 +99,7 @@
         dot.type = 'button';
         dot.className = 'carousel__dot';
         dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        dot.addEventListener('click', function () { scrollSlideIntoView(slides[i]); });
+        dot.addEventListener('click', function () { scrollToSlide(slides[i]); });
         dotsWrap.appendChild(dot);
         return dot;
       });
@@ -129,20 +132,11 @@
 
     function step(dir) {
       var next = Math.min(slides.length - 1, Math.max(0, activeIndex() + dir));
-      scrollSlideIntoView(slides[next]);
+      scrollToSlide(slides[next]);
     }
 
     if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
     if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
-
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', function () {
-        var expanded = carousel.classList.toggle('is-expanded');
-        toggleBtn.setAttribute('aria-expanded', String(expanded));
-        toggleBtn.textContent = expanded ? 'Show as carousel' : 'Show all';
-        if (!expanded) sync();
-      });
-    }
 
     track.addEventListener('scroll', function () {
       window.clearTimeout(track._scrollTimer);

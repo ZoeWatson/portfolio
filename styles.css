@@ -332,25 +332,6 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
 .carousel--wide .carousel__track { gap: 1.8rem; }
 .carousel--wide .carousel__slide { flex-basis: 100%; }
 
-/* --- Expanded state: track becomes a normal grid, controls collapse --- */
-.carousel.is-expanded .carousel__track {
-  display: grid; overflow: visible; scroll-snap-type: none;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-}
-.carousel--wide.is-expanded .carousel__track { grid-template-columns: 1fr; }
-.carousel.is-expanded .carousel__slide { flex: none; }
-.carousel.is-expanded .carousel__btn,
-.carousel.is-expanded .carousel__dots { display: none; }
-
-.carousel__expand {
-  border: 1.5px solid var(--green-300); border-radius: 999px;
-  background: var(--white); color: var(--green-800);
-  font: inherit; font-size: .88rem; font-weight: 600;
-  padding: .45rem 1.1rem; cursor: pointer;
-  transition: background .18s ease, border-color .18s ease;
-}
-.carousel__expand:hover { background: var(--green-050); border-color: var(--green-600); }
-
 /* --- Focus carousel (Volunteering): wide cards, one in focus --- */
 .carousel--focus .carousel__track {
   gap: 1.5rem; scroll-snap-type: x mandatory;
