@@ -60,4 +60,44 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealTargets.forEach(function (el) { io.observe(el); });
   }
+
+  /* ---- Modals (Contact / Get Quote) ---- */
+  var CONTACT_EMAIL = 'zwzwatts@gmail.com';
+
+  document.querySelectorAll('[data-modal-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var modal = document.getElementById(btn.getAttribute('data-modal-open'));
+      if (modal && typeof modal.showModal === 'function') modal.showModal();
+    });
+  });
+
+  document.querySelectorAll('.modal').forEach(function (modal) {
+    modal.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () { modal.close(); });
+    });
+    // Close when clicking the backdrop
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.close();
+    });
+  });
+
+  document.querySelectorAll('[data-mailto-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var subject = form.getAttribute('data-mailto-subject') || 'Message from portfolio site';
+      var lines = [];
+      Array.prototype.forEach.call(form.elements, function (field) {
+        if (!field.name) return;
+        lines.push(field.name.charAt(0).toUpperCase() + field.name.slice(1) + ': ' + field.value);
+      });
+      var body = lines.join('\n');
+      var mailto = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+      var modal = form.closest('.modal');
+      if (modal) modal.close();
+      form.reset();
+    });
+  });
 })();

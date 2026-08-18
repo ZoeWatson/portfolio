@@ -26,13 +26,9 @@
     <nav class="nav" aria-label="Primary">
       <a class="nav__brand" href="#top">
         <span class="nav__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="Node network mark">
-            <circle cx="6" cy="16" r="3" />
-            <circle cx="24" cy="7" r="3" />
-            <circle cx="24" cy="25" r="3" />
-            <line x1="8.5" y1="14.5" x2="21.5" y2="8.5" />
-            <line x1="8.5" y1="17.5" x2="21.5" y2="23.5" />
-            <line x1="24" y1="10" x2="24" y2="22" />
+          <svg viewBox="0 0 32 32" width="26" height="26" role="img" aria-label="Leaf mark">
+            <path class="leaf__body" d="M27 5C18 5 5 9 5 21c0 3 2.4 5.4 5.4 5.4C22 26.4 27 15 27 5z" />
+            <path class="leaf__vein" d="M9.5 25C15 17.5 19.5 11 26 6" />
           </svg>
         </span>
         <span class="nav__name">Zoe Watson</span>
@@ -43,12 +39,17 @@
       </button>
 
       <ul class="nav__menu" id="nav-menu">
+        <li><a href="#research-development">Research Development</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#what-i-can-do">What I Can Do</a></li>
+        <li><a href="#work">Past Projects</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#volunteering">Volunteering</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a class="nav__resume" href="assets/Zoe-Watson-Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↓</span></a></li>
+        <li class="nav__action-item"><a class="nav__resume" href="assets/Zoe-Watson-Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↓</span></a></li>
+        <li class="nav__action-item"><button type="button" class="nav__resume nav__resume--btn" data-modal-open="contact-modal">Contact</button></li>
+        <li class="nav__action-item"><button type="button" class="nav__resume nav__resume--btn nav__resume--quote" data-modal-open="quote-modal">Get Quote</button></li>
       </ul>
     </nav>
   </header>
@@ -81,11 +82,48 @@
       </div>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section class="section" id="about" aria-labelledby="about-heading">
+    <!-- ===================== RESEARCH DEVELOPMENT ===================== -->
+    <section class="section" id="research-development" aria-labelledby="rd-heading">
       <div class="wrap section__grid">
         <div class="section__head">
-          <p class="section__kicker"><span class="dot"></span>01 — About</p>
+          <p class="section__kicker"><span class="dot"></span>01 — Research Development</p>
+          <h2 class="section__title" id="rd-heading">What is research development? What can I do?</h2>
+        </div>
+        <div class="section__body prose">
+          <p class="placeholder-note">Placeholder — details coming soon.</p>
+          <p>
+            Research development is the discipline of turning a research idea into a fundable, executable
+            project — scoping the question, building the case, assembling the team, and navigating the
+            institutions (funders, universities, municipalities) that have to say yes before the work can start.
+          </p>
+          <p>
+            In practice, that means I can help you go from a rough idea to a structured proposal: shaping the
+            research question, identifying funding opportunities, building data pipelines and models to
+            demonstrate feasibility, and writing the case in language reviewers and stakeholders can act on.
+          </p>
+          <ul class="about__pillars">
+            <li>
+              <h3>Scope</h3>
+              <p>Placeholder — turning an open-ended question into a fundable, executable project.</p>
+            </li>
+            <li>
+              <h3>Build</h3>
+              <p>Placeholder — data pipelines, models, and prototypes that make the case concrete.</p>
+            </li>
+            <li>
+              <h3>Pitch</h3>
+              <p>Placeholder — proposals, briefs, and stakeholder communication that get to yes.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section section--alt" id="about" aria-labelledby="about-heading">
+      <div class="wrap section__grid">
+        <div class="section__head">
+          <p class="section__kicker"><span class="dot"></span>02 — About</p>
           <h2 class="section__title" id="about-heading">A systems thinker, on paper and in practice.</h2>
         </div>
         <div class="section__body prose">
@@ -120,6 +158,44 @@
               <p>Stakeholder research, institutional fluency, leading through ambiguity.</p>
             </li>
           </ul>
+          <div class="about__cta">
+            <a class="btn btn--primary" href="assets/Zoe-Watson-Resume.pdf" target="_blank" rel="noopener">Download résumé ↓</a>
+            <button type="button" class="btn btn--ghost" data-modal-open="contact-modal">Contact</button>
+            <button type="button" class="btn btn--ghost" data-modal-open="quote-modal">Get quote</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHAT I CAN DO FOR YOU ===================== -->
+    <section class="section" id="what-i-can-do" aria-labelledby="wicd-heading">
+      <div class="wrap">
+        <div class="section__head section__head--wide">
+          <p class="section__kicker"><span class="dot"></span>03 — What I Can Do For You</p>
+          <h2 class="section__title" id="wicd-heading">A few examples of what I can build for you.</h2>
+        </div>
+
+        <div class="offer-cards">
+          <article class="offer-card">
+            <p class="offer-card__label">Example</p>
+            <h3>Turn your recipes into a meal planner</h3>
+            <p>Placeholder — feed in your own recipes and get a personalized, automated meal-planning tool built around them.</p>
+          </article>
+          <article class="offer-card">
+            <p class="offer-card__label">Example</p>
+            <h3>Build a simulation</h3>
+            <p>Placeholder — a custom simulation of a system you care about, from climate models to operational planning.</p>
+          </article>
+          <article class="offer-card">
+            <p class="offer-card__label">Example</p>
+            <h3>Build a game</h3>
+            <p>Placeholder — a small, playable game built to spec, from concept through a working prototype.</p>
+          </article>
+          <article class="offer-card offer-card--muted">
+            <p class="offer-card__label">Your idea</p>
+            <h3>Something else entirely</h3>
+            <p>Placeholder — not seeing your project here? Get in touch and let's talk about what you need.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -128,7 +204,7 @@
     <section class="section section--alt" id="experience" aria-labelledby="exp-heading">
       <div class="wrap">
         <div class="section__head section__head--wide">
-          <p class="section__kicker"><span class="dot"></span>02 — Experience</p>
+          <p class="section__kicker"><span class="dot"></span>04 — Experience</p>
           <h2 class="section__title" id="exp-heading">Proof points across research, industry, and a business I ran from scratch.</h2>
         </div>
 
@@ -289,8 +365,8 @@
     <section class="section" id="work" aria-labelledby="work-heading">
       <div class="wrap">
         <div class="section__head section__head--wide">
-          <p class="section__kicker"><span class="dot"></span>03 — Selected Work</p>
-          <h2 class="section__title" id="work-heading">Three projects, told as cases — not bullet points.</h2>
+          <p class="section__kicker"><span class="dot"></span>05 — Past Projects</p>
+          <h2 class="section__title" id="work-heading">A few projects, told as cases — not bullet points.</h2>
         </div>
 
         <div class="cases">
@@ -393,6 +469,23 @@
               <a href="https://github.com/ZoeWatson/CO2Sim" target="_blank" rel="noopener">View on GitHub →</a>
             </p>
           </article>
+
+          <!-- Fire Sim -->
+          <article class="case" id="case-firesim">
+            <header class="case__head">
+              <p class="case__label">Case study · Placeholder</p>
+              <h3 class="case__title">Fire Sim</h3>
+            </header>
+            <div class="case__body prose">
+              <p class="placeholder-note">Placeholder — full write-up coming soon.</p>
+              <p>
+                Details on this project are coming soon.
+              </p>
+            </div>
+            <ul class="case__tags">
+              <li>Placeholder</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -401,7 +494,7 @@
     <section class="section section--alt" id="skills" aria-labelledby="skills-heading">
       <div class="wrap">
         <div class="section__head section__head--wide">
-          <p class="section__kicker"><span class="dot"></span>04 — Skills</p>
+          <p class="section__kicker"><span class="dot"></span>06 — Skills</p>
           <h2 class="section__title" id="skills-heading">Organized by register — because the range is the point.</h2>
         </div>
 
@@ -469,11 +562,27 @@
       </div>
     </section>
 
+    <!-- ===================== VOLUNTEERING ===================== -->
+    <section class="section" id="volunteering" aria-labelledby="volunteering-heading">
+      <div class="wrap section__grid">
+        <div class="section__head">
+          <p class="section__kicker"><span class="dot"></span>07 — Volunteering</p>
+          <h2 class="section__title" id="volunteering-heading">Giving back where it counts.</h2>
+        </div>
+        <div class="section__body prose">
+          <p class="placeholder-note">Placeholder — details coming soon.</p>
+          <p>
+            Volunteering experience and community involvement will be added here.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== EDUCATION + CONTACT ===================== -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
+    <section class="section section--alt" id="contact" aria-labelledby="contact-heading">
       <div class="wrap contact__grid">
         <div class="contact__edu">
-          <p class="section__kicker"><span class="dot"></span>05 — Education</p>
+          <p class="section__kicker"><span class="dot"></span>08 — Education</p>
           <h2 class="section__title contact__edu-title">BSc, Combined Science</h2>
           <p class="contact__edu-detail">Physics · Computer Science · Environmental Science</p>
           <p class="contact__edu-school">University of British Columbia — Vancouver, BC · 2024</p>
@@ -517,6 +626,72 @@
       <a href="#top" class="site-footer__top">Back to top ↑</a>
     </div>
   </footer>
+
+  <!-- ===================== MODALS ===================== -->
+  <dialog class="modal" id="contact-modal" aria-labelledby="contact-modal-heading">
+    <form method="dialog" class="modal__form" data-mailto-form data-mailto-subject="Contact via portfolio site">
+      <button type="button" class="modal__close" data-modal-close aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="contact-modal-heading">Get in touch</h2>
+      <p class="modal__lede">Fill this out and your email client will open with a message ready to send.</p>
+
+      <label class="modal__field">
+        <span>Name</span>
+        <input type="text" name="name" required />
+      </label>
+      <label class="modal__field">
+        <span>Email</span>
+        <input type="email" name="email" required />
+      </label>
+      <label class="modal__field">
+        <span>Message</span>
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
+        <button type="submit" class="btn btn--primary">Send message</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="quote-modal" aria-labelledby="quote-modal-heading">
+    <form method="dialog" class="modal__form" data-mailto-form data-mailto-subject="Project quote request via portfolio site">
+      <button type="button" class="modal__close" data-modal-close aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="quote-modal-heading">Get a quote</h2>
+      <p class="modal__lede">Tell me a bit about the project and I'll follow up by email.</p>
+
+      <label class="modal__field">
+        <span>Name</span>
+        <input type="text" name="name" required />
+      </label>
+      <label class="modal__field">
+        <span>Email</span>
+        <input type="email" name="email" required />
+      </label>
+      <label class="modal__field">
+        <span>Project type</span>
+        <select name="projectType">
+          <option value="Meal planner">Recipe / meal planner tool</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Game">Game</option>
+          <option value="Other">Something else</option>
+        </select>
+      </label>
+      <label class="modal__field">
+        <span>Rough budget / timeline</span>
+        <input type="text" name="budget" placeholder="e.g. $2–5k, ready in 6 weeks" />
+      </label>
+      <label class="modal__field">
+        <span>Project details</span>
+        <textarea name="details" rows="4" required></textarea>
+      </label>
+
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
+        <button type="submit" class="btn btn--primary">Request quote</button>
+      </div>
+    </form>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

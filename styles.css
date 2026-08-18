@@ -117,21 +117,26 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
 .nav__brand { display: flex; align-items: center; gap: .6rem; color: var(--ink); font-weight: 700; }
 .nav__brand:hover { text-decoration: none; }
 .nav__mark svg { display: block; }
-.nav__mark circle { fill: var(--green-600); }
-.nav__mark line { stroke: var(--green-400); stroke-width: 1.6; }
+.nav__mark .leaf__body { fill: var(--green-600); }
+.nav__mark .leaf__vein { stroke: var(--green-400); stroke-width: 1.6; fill: none; stroke-linecap: round; }
 .nav__name { font-family: var(--font-display); font-size: 1.12rem; letter-spacing: .1px; }
 
 .nav__menu {
-  display: flex; align-items: center; gap: 1.9rem;
+  display: flex; align-items: center; gap: 1.3rem;
   list-style: none; margin: 0; padding: 0;
 }
-.nav__menu a { color: var(--ink-soft); font-weight: 500; font-size: .96rem; }
+.nav__menu a { color: var(--ink-soft); font-weight: 500; font-size: .92rem; white-space: nowrap; }
 .nav__menu a:hover { color: var(--green-800); text-decoration: none; }
+.nav__action-item { display: flex; }
 .nav__resume {
   border: 1.5px solid var(--green-300); border-radius: 999px;
   padding: .42rem 1rem; color: var(--green-800) !important;
+  font: inherit; background: none; cursor: pointer; white-space: nowrap;
 }
 .nav__resume:hover { background: var(--green-050); border-color: var(--green-600); }
+.nav__resume--btn { font-family: var(--font-sans); font-weight: 500; font-size: .92rem; }
+.nav__resume--quote { background: var(--green-700); border-color: var(--green-700); color: #fff !important; }
+.nav__resume--quote:hover { background: var(--green-800); border-color: var(--green-800); }
 
 .nav__toggle {
   display: none; flex-direction: column; gap: 5px;
@@ -259,6 +264,81 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
   color: var(--green-700); margin-bottom: .5rem;
 }
 .about__pillars p { margin: 0; font-size: .93rem; color: var(--ink-soft); }
+
+.about__cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.4rem; }
+
+.placeholder-note {
+  display: inline-block; font-family: var(--font-mono); font-size: .78rem;
+  color: var(--accent-warm); background: var(--green-050); border: 1px solid var(--green-100);
+  padding: .3rem .7rem; border-radius: 6px; margin: 0 0 1.2rem !important;
+}
+
+/* =========================================================
+   OFFER CARDS (What I Can Do For You)
+   ========================================================= */
+.offer-cards {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem;
+}
+.offer-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.6rem 1.5rem;
+  box-shadow: var(--shadow-sm); transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.offer-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--green-300); }
+.offer-card--muted { background: var(--paper-2); border-style: dashed; }
+.offer-card__label {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--accent-warm); margin: 0 0 .6rem;
+}
+.offer-card h3 {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.15rem;
+  color: var(--ink); margin-bottom: .6rem;
+}
+.offer-card p { color: var(--ink-soft); font-size: .93rem; margin: 0; }
+
+@media (max-width: 900px) {
+  .offer-cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+.modal {
+  border: none; border-radius: var(--radius); padding: 0;
+  width: min(520px, 92vw); box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+.modal::backdrop { background: rgba(20, 48, 31, .45); backdrop-filter: blur(2px); }
+.modal__form { padding: 2rem 2.2rem 2.2rem; position: relative; display: flex; flex-direction: column; }
+.modal__close {
+  position: absolute; top: 1rem; right: 1.1rem;
+  background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer;
+  color: var(--ink-muted); padding: .2rem .4rem; border-radius: 6px;
+}
+.modal__close:hover { color: var(--ink); background: var(--green-050); }
+.modal__title {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.5rem;
+  color: var(--ink); margin: 0 0 .5rem; padding-right: 1.5rem;
+}
+.modal__lede { color: var(--ink-soft); font-size: .95rem; margin: 0 0 1.4rem; }
+.modal__field {
+  display: flex; flex-direction: column; gap: .4rem;
+  font-size: .88rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 1.1rem;
+}
+.modal__field input,
+.modal__field select,
+.modal__field textarea {
+  font: inherit; font-weight: 400; color: var(--ink);
+  border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+  padding: .65rem .8rem; background: var(--paper);
+  resize: vertical;
+}
+.modal__field input:focus,
+.modal__field select:focus,
+.modal__field textarea:focus {
+  outline: none; border-color: var(--green-500);
+}
+.modal__actions { display: flex; justify-content: flex-end; gap: .8rem; margin-top: .6rem; }
 
 /* =========================================================
    TIMELINE / EXPERIENCE
@@ -509,7 +589,7 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
   .contact__edu { position: static; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1080px) {
   .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute; top: 68px; left: 0; right: 0;
@@ -524,8 +604,11 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
   .nav__menu li { border-bottom: 1px solid var(--line-soft); }
   .nav__menu li:last-child { border-bottom: 0; }
   .nav__menu a { display: block; padding: .9rem .25rem; font-size: 1.02rem; }
-  .nav__resume { display: inline-block; margin-top: .8rem; text-align: center; }
+  .nav__action-item { display: block; }
+  .nav__resume { display: inline-block; margin-top: .8rem; text-align: center; width: 100%; }
+}
 
+@media (max-width: 760px) {
   .hero__inner { padding: 3.5rem 0 3.4rem; }
   .hero__facts { grid-template-columns: repeat(2, 1fr); gap: 1.4rem 1rem; }
 
@@ -538,6 +621,7 @@ h1, h2, h3, h4 { line-height: 1.15; margin: 0; font-weight: 600; }
   .case { padding: 1.7rem 1.4rem; }
   .contact__cta { padding: 1.9rem 1.5rem; }
   .contact__links { grid-template-columns: 1fr; }
+  .offer-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 420px) {
