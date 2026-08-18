@@ -43,7 +43,8 @@
   /* ---- Scroll reveal (respects reduced-motion) ---- */
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revealTargets = document.querySelectorAll(
-    '.section__head, .section__body, .tl, .case, .skills__col, .contact__cta, .contact__edu, .hero__facts'
+    '.section__head, .section__body, .tl, .case, .skills__col, .contact__cta, .contact__edu, ' +
+    '.hero__facts, .rd__intro, .process__step, .rd__note, .offer-card, .carousel'
   );
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
